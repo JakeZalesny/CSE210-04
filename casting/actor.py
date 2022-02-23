@@ -27,3 +27,18 @@ class Actor:
         x = (self._position.get_x() + self._velocity.get_x()) % max_x
         y = (self._position.get_y() + self._velocity.get_y()) % max_y
         self._position = Point(x, y)
+
+    def set_color(self, color):
+        self._color = color
+
+    def set_position(self, position):
+        self._position = position
+    
+    def set_font_size(self, font_size):
+        self._font_size = font_size
+    
+    def set_text(self, text):
+        self._text = text
+
+    def set_velocity(self, velocity):
+        self._velocity = velocity
