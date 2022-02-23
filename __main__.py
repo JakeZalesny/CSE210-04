@@ -5,6 +5,9 @@ from services.keyboard_service import KeyboardService
 from services.video_service import VideoService
 from directing.director import Director
 from shared.point import Point
+from casting.cast import Cast
+from casting.actor import Actor
+from casting.
 
 
 FRAME_RATE = 12
