@@ -7,7 +7,8 @@ from directing.director import Director
 from shared.point import Point
 from casting.cast import Cast
 from casting.actor import Actor
-from casting.
+from casting.artifacts import Artifact
+from shared.color import Color
 
 
 FRAME_RATE = 12
@@ -54,11 +55,9 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
-        message = messages[n]
 
-        x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        x = random.randint(0, MAX_X)
+        y = MAX_Y
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
@@ -66,14 +65,14 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
-        
-        artifact = Artifact()
-        artifact.set_text(text)
-        artifact.set_font_size(FONT_SIZE)
-        artifact.set_color(color)
-        artifact.set_position(position)
-        artifact.set_message(message)
-        cast.add_actor("artifacts", artifact)
+        if n % 2 == 0 :
+            artifact = Artifact()
+            artifact.set_text(text)
+            artifact.set_font_size(FONT_SIZE)
+            artifact.set_color(color)
+            artifact.set_position(position)
+            artifact.set_message(message)
+            cast.add_actor("artifacts", artifact)
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
