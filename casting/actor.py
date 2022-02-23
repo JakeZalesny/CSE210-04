@@ -1,3 +1,5 @@
+from shared.point import Point
+
 class Actor:
     def __init__(self):
         self._text = ""
