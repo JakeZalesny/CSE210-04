@@ -14,3 +14,16 @@ class Director:
             self._do_updates(cast)
             self._do_outputs(cast)
         self._video_service.close_window()
+
+    def _get_inputs(self):
+        pass
+
+
+    def _do_updates(self):
+        pass
+
+
+    def _do_outputs(self):
+        pass
+
+    
