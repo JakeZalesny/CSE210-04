@@ -48,13 +48,8 @@ def main():
     robot.set_color(WHITE)
     robot.set_position(position)
     cast.add_actor("robots", robot)
-    
-    # create the artifacts
-    with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()
 
-    for n in range(DEFAULT_ARTIFACTS):
+    for n in range(ROWS):
 
         x = random.randint(0, MAX_X)
         y = MAX_Y
@@ -67,11 +62,11 @@ def main():
         color = Color(r, g, b)
         
         if n % 2 == 0 :
-            artifact = Artifact()
-            artifact.set_font_size(FONT_SIZE)
-            artifact.set_color(color)
-            artifact.set_position(position)
-            cast.add_actor("gems", artifact)
+            gems = Actor()
+            gems.set_font_size(FONT_SIZE)
+            gems.set_color(color)
+            gems.set_position(position)
+            cast.add_actor("gems", gems)
         
         
     

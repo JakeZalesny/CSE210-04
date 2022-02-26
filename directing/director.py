@@ -1,4 +1,7 @@
 
+from pyray import gen_mesh_sphere
+
+
 class Director:
     """A person who directs the game. 
     
@@ -48,19 +51,23 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
-        artifacts = cast.get_actors("artifacts")
+        gems = cast.get_actors("gems")
+        rocks = cast.get_actors("rocks")
 
-        banner.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y)
+        robot.move_next(max_x, max_y, "robot")
+        gems.move_next(max_x, max_y, "gems")
+        rocks.move_next(max_x, max_y, "rocks")
         
-        for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
+        for gem in gems:
+            if robot.get_position().equals(gem.get_position()):
+                pass
+        
+        for rock in rocks :
+            if robot.get_position().equals(rock.get_position()):
+                pass
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
