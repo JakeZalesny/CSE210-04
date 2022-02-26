@@ -7,7 +7,7 @@ from directing.director import Director
 from shared.point import Point
 from casting.cast import Cast
 from casting.actor import Actor
-from casting.artifacts import Artifact
+from casting.artifact import Artifact
 from shared.color import Color
 
 
