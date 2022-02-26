@@ -1,3 +1,6 @@
+from casting.artifact import Artifact
+
+
 class Cast:
     """A collection of actors.
 
@@ -12,7 +15,7 @@ class Cast:
         """Constructs a new Actor."""
         self._actors = {}
         
-    def add_actor(self, group, actor):
+    def add_actor(self, group, actor: Artifact):
         """Adds an actor to the given group.
         
         Args:
