@@ -7,7 +7,7 @@ from directing.director import Director
 from shared.point import Point
 from casting.cast import Cast
 from casting.actor import Actor
-from casting.artifacts import Artifact
+from casting.artifact import Artifact
 from shared.color import Color
 
 
@@ -65,14 +65,21 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
+        
         if n % 2 == 0 :
             artifact = Artifact()
-            artifact.set_text(text)
             artifact.set_font_size(FONT_SIZE)
             artifact.set_color(color)
             artifact.set_position(position)
-            artifact.set_message(message)
-            cast.add_actor("artifacts", artifact)
+            cast.add_actor("gems", artifact)
+        
+        else :
+            artifact = Artifact()
+            artifact.set_font_size(FONT_SIZE)
+            artifact.set_color(color)
+            artifact.set_position(position)
+            cast.add_actor("rocks", artifact)
+
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
