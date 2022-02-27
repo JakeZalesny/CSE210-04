@@ -45,3 +45,8 @@ class KeyboardService:
         direction = direction.scale(self._cell_size)
         
         return direction
+    
+    def get_auto_direction(self) :
+        auto_direction = Point(0,-1)
+        auto_direction = auto_direction.scale(self._cell_size)
+        return auto_direction

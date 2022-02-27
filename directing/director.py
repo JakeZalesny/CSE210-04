@@ -42,8 +42,17 @@ class Director:
             cast (Cast): The cast of actors.
         """
         robot = cast.get_first_actor("robots")
+        gems = cast.get_first_actor("gems")
+        rocks = cast.get_first_actor("rocks")
         velocity = self._keyboard_service.get_direction()
-        robot.set_velocity(velocity)        
+        auto_velocity = self._keyboard_service.get_auto_direction()
+        robot.set_velocity(velocity)
+        gems.set_velocity(auto_velocity)
+        rocks.set_velocity(auto_velocity)
+
+
+
+
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -57,17 +66,22 @@ class Director:
 
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y, "robot")
-        gems.move_next(max_x, max_y, "gems")
-        rocks.move_next(max_x, max_y, "rocks")
+        robot.move_next(max_x, max_y)
+        
+        
         
         for gem in gems:
+            gem.move_down(max_x, max_y)
+            gem.set_text("*")
             if robot.get_position().equals(gem.get_position()):
-                pass
+                cast.remove_actor("gems", gem)
         
-        for rock in rocks :
+        for rock in rocks:
+            rock.move_down(max_x, max_y)
+            rock.set_text("0")
             if robot.get_position().equals(rock.get_position()):
-                pass
+                cast.remove_actor("rocks", rock)
+
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.

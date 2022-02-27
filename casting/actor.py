@@ -23,14 +23,11 @@ class Actor:
     def get_velocity(self):
         return self._velocity
 
-    def move_next(self, max_x, max_y, actor):
+    def move_next(self, max_x, max_y):
         x = (self._position.get_x() + self._velocity.get_x()) % max_x
         y = (self._position.get_y() + self._velocity.get_y()) % max_y
-        auto_y = self._position.get_y() - 1 % max_y
         self._position = Point(x, y)
-
-        if actor != "robot" :
-            self._position = Point(x, auto_y)
+    
 
     def set_color(self, color):
         self._color = color

@@ -49,6 +49,8 @@ def main():
     robot.set_position(position)
     cast.add_actor("robots", robot)
 
+        
+
     for n in range(ROWS):
 
         x = random.randint(0, MAX_X)
@@ -62,19 +64,17 @@ def main():
         color = Color(r, g, b)
         
         if n % 2 == 0 :
-            gems = Actor()
+            gems = Artifact()
             gems.set_font_size(FONT_SIZE)
             gems.set_color(color)
             gems.set_position(position)
             cast.add_actor("gems", gems)
-        
         else :
-            rocks = Actor()
+            rocks = Artifact()
             rocks.set_font_size(FONT_SIZE)
             rocks.set_color(color)
             rocks.set_position(position)
             cast.add_actor("rocks", rocks)
-
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
