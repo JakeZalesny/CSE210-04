@@ -1,6 +1,4 @@
 
-from pyray import gen_mesh_sphere
-
 
 class Director:
     """A person who directs the game. 
