@@ -69,6 +69,7 @@ def main():
             gems.set_color(color)
             gems.set_position(position)
             cast.add_actor("gems", gems)
+        
         else :
             rocks = Artifact()
             rocks.set_font_size(FONT_SIZE)
