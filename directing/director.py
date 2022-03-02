@@ -45,6 +45,7 @@ class Director:
         velocity = self._keyboard_service.get_direction()
         auto_velocity = self._keyboard_service.get_auto_direction()
         robot.set_velocity(velocity)
+
         gems.set_velocity(auto_velocity)
         rocks.set_velocity(auto_velocity)
 
@@ -65,7 +66,7 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
-        
+
         for gem in gems :
             gem.move_down(max_x, max_y)
             gem.set_text("*")

@@ -1,12 +1,13 @@
 from casting.actor import Actor
 from shared.point import Point
+import random
 class Artifact(Actor):
     
     def __init__(self):
         super().__init__()
         self._gem = ""
         self._position = Point(0, 0)
-        self._velocity = Point(0, 0)
+        self._velocity = Point(0, random.randint(-7, -1))
         
     def get_gem(self):
         return self._gem
