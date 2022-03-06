@@ -70,15 +70,19 @@ class Director:
         for gem in gems :
             gem.move_down(max_x, max_y)
             gem.set_text("*")
-            if robot.get_position().equals(gem.get_position()):
+            if robot.get_position().equals(gem.get_position()): # Add  or is_epired:
                 cast.remove_actor("gems", gem)
+
 
         for rock in rocks:
             rock.move_down(max_x, max_y)
             rock.set_text("0")
             if robot.get_position().equals(rock.get_position()):
                 cast.remove_actor("rocks", rock)
-    
+            
+        # Remove any expired rocks and create new ones in their place, loop through and
+        # remove them from Cast. 
+        # 
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
